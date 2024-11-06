@@ -1,0 +1,10 @@
+<!-- <script>
+
+    </script> -->
+
+    json_decode () =======    json OBJECT ----------> PHP Array / Object
+
+    json_decode(json object, assoc)  /// this is for the json_decode function    ------> it return the php Object
+                                |
+                                |
+                                it return true/ false

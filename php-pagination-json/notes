@@ -1,0 +1,59 @@
+//////////// Notes for the pagination ///////////////////////////
+if I have Total Records = 7
+Limit Per Page = 3
+
+Total pages = Total Records / Limits per Page 
+                7 / 3 = 2.333
+
+Total Pages = ceil(Total Records / Limit per page) --> 3  // it will take the above point value
+
+Offset = kahan se starting krni hai "Limit ham set kr sakte hain"
+
+SELECT *From TableName Limit 0,3,   /// in these queries offset is changing but limit is same
+SELECT *From TableName Limit 3,3,   /// calculate offset => offset = (Page Number - 1)*Limit
+SELECT *From TableName Limit 6,3.
+
+
+////// We can also use the $.POST / $.GET instead $.ajax like this example
+
+$(document).ready(function(){
+    $("#submit").click(function(){
+
+        var fname = $('fname').val();
+        var lname = $('lname').val();
+
+        if (fname == "" || lname == "") {
+            $("#response").fadeIn();
+            $("#response").html("All fields are required");
+        }
+
+        else {
+            $.post(
+                "save-form.php",
+                $("#submit-form").serialize(),
+                function(data) {
+                    if (data == 1) {
+                        $("#submit-form").trigger("reset");
+                        $("#response").fadeIn();
+                        $("#response").html("Data successfully saved");
+                        setTimeout(function(){
+                            $("#response").fadeOut();
+                        },5000);
+                    }
+                }
+            );
+        }
+
+        
+    });
+});
+
+
+///// supported data types of in JSON
+
+1-String
+2-Number
+3-Boolean
+4-Array
+5-Object
+6-Null

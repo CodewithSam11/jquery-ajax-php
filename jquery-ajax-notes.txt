@@ -1,0 +1,12 @@
+////////////////// jQuery and ajax Notes ///////////////////////////
+
+Ajax code:
+$.ajax({
+    url: "file.php",
+    type: "post",
+    data: String/Array/Object,
+    success: function(data) {
+
+    }
+
+});
